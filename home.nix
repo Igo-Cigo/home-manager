@@ -119,13 +119,13 @@
 
   # zsh
   home.file = {
-    "~/.p10k.zsh".source = ~/.dots/zsh/.p10k.zsh;
+    ".p10k.zsh".source = ~/.dots/zsh/.p10k.zsh;
   };
   programs.zsh = {
     enable = true;
     history = {
       size = 10000;
-      path = "~/.zsh_history";
+      path = ".zsh_history";
       save = 10000; # Has to be the same size as the 'size' variable
       saveNoDups = true;
       append = true;
@@ -180,7 +180,7 @@
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
       zstyle ':completion:*' menu no
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color ''$realpath'
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
       # Keybinds
       # bindkey '^f' autosuggest-accept

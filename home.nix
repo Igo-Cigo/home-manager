@@ -142,6 +142,7 @@
 
     # Manage plugins
     initContent = ''
+      # eval "$(fnm env --use-on-cd)"
       # Initialize powerlevel10k
       if [[ -r "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
@@ -159,19 +160,19 @@
       zinit ice depth=1; zinit light romkatv/powerlevel10k
 
       # Add in zsh plugins
-      zinit light zsh-users/zsh-syntax-highlighting
-      zinit light zsh-users/zsh-completions
-      zinit light zsh-users/zsh-autosuggestions
-      zinit light Aloxaf/fzf-tab
+      zinit ice wait lucid; zinit light zsh-users/zsh-syntax-highlighting
+      zinit ice wait lucid; zinit light zsh-users/zsh-completions
+      zinit ice wait lucid; zinit light zsh-users/zsh-autosuggestions
+      zinit ice wait lucid; zinit light Aloxaf/fzf-tab
 
       # Add in snippets
-      zinit snippet OMZP::sudo
-      zinit snippet OMZP::command-not-found
+      zinit ice wait lucid; zinit snippet OMZP::sudo
+      zinit ice wait lucid; zinit snippet OMZP::command-not-found
 
       # Load completions
       autoload -U compinit && compinit
       
-      zinit cdreplay -q
+      zinit ice wait lucid; zinit cdreplay -q
 
       # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -186,8 +187,6 @@
       bindkey -e
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
-
-
     '';
   };
   programs.fzf.enable = true;

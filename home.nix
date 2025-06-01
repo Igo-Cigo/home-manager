@@ -126,7 +126,7 @@
     history = {
       size = 10000;
       path = "~/.zsh_history";
-      save = 1000; # Has to be the same size as the 'size' variable
+      save = 10000; # Has to be the same size as the 'size' variable
       saveNoDups = true;
       append = true;
       share = true;

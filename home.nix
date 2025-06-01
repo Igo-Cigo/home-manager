@@ -21,6 +21,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     pkgs.hello
+    pkgs.waybar-mpris
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -106,8 +107,11 @@
   #wayland.windowManager.hyprland.enable = true;
   home.file = {
     ".config/hypr/hyprland.conf".source = ~/.dots/hypr/hyprland.conf;
-    ".config/hypr/hyprpaper.conf".source = ~/.dots/hypr/hyprpaper.conf;
+    # ".config/hypr/hyprpaper.conf".source = ~/.dots/hypr/hyprpaper.conf;
   };
+
+  # swww
+  services.swww.enable = true;
 
   # Wofi
   programs.wofi.enable = true;
@@ -139,7 +143,6 @@
       "editnixhome" = "nano ~/.config/nixpkgs/home.nix";
       "ls" = "ls --color";
     };
-
     # Manage plugins
     initContent = ''
       # eval "$(fnm env --use-on-cd)"

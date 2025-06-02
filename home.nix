@@ -22,6 +22,7 @@
     # # "Hello, world!" when run.
     pkgs.hello
     pkgs.waybar-mpris
+    pkgs.vlc
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -87,12 +88,18 @@
         blur = true;
       };
       style = {
-        theme = "dracula";
+        theme = "lucario";
+      };
+      navigation = {
+        mode = "TopTab";
+        clickable = true;
+        color-automation = [];
+        use-split = true;
       };
     };
   };
   home.file = {
-    ".config/rio/themes/dracula.toml".source = ~/.dots/rio/themes/dracula.toml;
+    ".config/rio/themes/lucario.toml".source = ~/.dots/rio/themes/lucario.toml;
   };
 
   # Waybar
@@ -100,7 +107,6 @@
   home.file = {
     ".config/waybar/config.jsonc".source = ~/.dots/waybar/config.jsonc;
     ".config/waybar/style.css".source = ~/.dots/waybar/style.css;
-    ".config/waybar/power_menu.xml".source = ~/.dots/waybar/power_menu.xml;
   };
 
   # Hyprland

@@ -73,33 +73,15 @@
     # EDITOR = "emacs";
   };
 
-  # Rio
-  programs.rio = {
+  # Ghostty
+  programs.ghostty = {
     enable = true;
     settings = {
-      confirm-before-quit = false;
-      shell = {
-        program = "zsh";
-      };
-      fonts = {
-        family = "JetBrainsMono Nerd Font Propo";
-      };
-      window = {
-        blur = true;
-      };
-      style = {
-        theme = "lucario";
-      };
-      navigation = {
-        mode = "TopTab";
-        clickable = true;
-        color-automation = [];
-        use-split = true;
-      };
+      font-family = "JetBrainsMono Nerd Font Propo";
+      theme = "Dimidium";
+      confirm-close-surface = false;
+      resize-overlay = "never";
     };
-  };
-  home.file = {
-    ".config/rio/themes/lucario.toml".source = ~/.dots/rio/themes/lucario.toml;
   };
 
   # Waybar

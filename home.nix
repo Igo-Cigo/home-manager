@@ -24,6 +24,7 @@
     pkgs.waybar-mpris
     pkgs.vlc
     pkgs.nwg-look
+    pkgs.pokeget-rs
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -79,7 +80,7 @@
     enable = true;
     settings = {
       font-family = "JetBrainsMono Nerd Font Propo";
-      theme = "Dimidium";
+      theme = "detuned";
       confirm-close-surface = false;
       resize-overlay = "never";
     };
@@ -163,7 +164,7 @@
 
       # Load completions
       autoload -U compinit && compinit
-      
+
       zinit cdreplay -q
 
       # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -183,6 +184,62 @@
   };
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
+
+  # fastfetch
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = {
+        source = "~/.config/fastfetch/victini.txt";
+        padding = {
+          top = 2;
+          left = 2;
+        };
+      };
+      display = {
+        separator = " ";
+        key = {
+          width = 20;
+        };
+        percent = {
+          type = 1;
+        };
+      };
+      modules = [
+        "break" "break" "break" "break" "break"
+        {
+          type = "title";
+          color = { host = "italic_light_magenta"; };
+        }
+        {
+          type = "separator";
+          string = "═";
+          length = 20;
+        }
+        {
+          type = "os";
+          format = "{3}";
+        }
+        {
+          type = "shell";
+          format = "{6}";
+        }
+        {
+          type = "wm";
+          format = "{2}";
+        }
+        "terminal"
+        "memory"
+        {
+          type = "colors";
+          symbol = "square";
+        }
+      ];
+    };
+  };
+  home.file = {
+    ".config/fastfetch/victini.txt".source = ~/.dots/fastfetch/victini.txt;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

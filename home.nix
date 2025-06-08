@@ -25,6 +25,7 @@
     pkgs.vlc
     pkgs.nwg-look
     pkgs.pokeget-rs
+    pkgs.libreoffice-qt6-fresh
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -229,6 +230,11 @@
           format = "{2}";
         }
         "terminal"
+        {
+          type = "cpu";
+          format = "{name}";
+        }
+        "cpuusage"
         "memory"
         {
           type = "colors";
